@@ -12,6 +12,10 @@
 bin/
 gen/
 
+# NDK
+obj/
+libs/
+
 # Gradle files
 .gradle/
 build/
@@ -25,8 +29,16 @@ proguard/
 # Log Files
 *.log
 
+# Android Studio
+*.iml
+.gradle
+/ORB_SLAM2_Android/local.properties
+/ORB_SLAM2_Android/.idea/workspace.xml
+/ORB_SLAM2_Android/.idea/libraries
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+
 # Android Studio Navigation editor temp files
 .navigation/
-
-# Android Studio captures folder
-captures/

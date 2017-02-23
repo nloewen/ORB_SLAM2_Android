@@ -1,5 +1,7 @@
 LOCAL_PATH:= $(call my-dir)
 
+OPENCV_MK_PATH := ${LOCAL_PATH}/../../../OpenCV-2.4.11-android-sdk/sdk/native/jni/OpenCV.mk
+
 #############DLib模块##################
 
 include $(CLEAR_VARS)
@@ -22,6 +24,7 @@ include $(BUILD_SHARED_LIBRARY)
 #############DLib模块##################
 include $(CLEAR_VARS)
 MAIN_DIR:=$(LOCAL_PATH)
+OPENCV_INSTALL_MODULES:=on
 OPENCV_LIB_TYPE:=STATIC
 ifeq ("$(wildcard $(OPENCV_MK_PATH))","")  
 #try to load OpenCV.mk from default install location  
@@ -71,6 +74,7 @@ include $(BUILD_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 MAIN_DIR:=$(LOCAL_PATH)
 
+OPENCV_INSTALL_MODULES:=on
 OPENCV_LIB_TYPE:=STATIC
 ifeq ("$(wildcard $(OPENCV_MK_PATH))","")  
 #try to load OpenCV.mk from default install location  
@@ -185,6 +189,7 @@ include $(BUILD_SHARED_LIBRARY)
 ##############ORB_SLAM2模块##################################
 include $(CLEAR_VARS)
 MAIN_DIR:=$(LOCAL_PATH)
+OPENCV_INSTALL_MODULES:=on
 OPENCV_LIB_TYPE:=STATIC
 ifeq ("$(wildcard $(OPENCV_MK_PATH))","")  
 #try to load OpenCV.mk from default install location  
@@ -213,6 +218,7 @@ include $(BUILD_SHARED_LIBRARY)
 ##############ORB_SLAM2 執行模块###############################
 include $(CLEAR_VARS)
 MAIN_DIR:=$(LOCAL_PATH)
+OPENCV_INSTALL_MODULES:=on
 OPENCV_LIB_TYPE:=STATIC
 ifeq ("$(wildcard $(OPENCV_MK_PATH))","")  
 #try to load OpenCV.mk from default install location  

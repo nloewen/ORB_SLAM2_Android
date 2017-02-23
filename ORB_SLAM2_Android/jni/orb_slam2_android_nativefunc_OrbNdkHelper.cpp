@@ -46,7 +46,7 @@ JNIEXPORT jintArray JNICALL Java_orb_slam2_android_nativefunc_OrbNdkHelper_start
 		JNIEnv * env, jclass cls, jdouble curTimeStamp, jintArray buf, jint w,
 		jint h) {
 	jint *cbuf;
-	cbuf = env->GetIntArrayElements(buf, false);
+	cbuf = env->GetIntArrayElements(buf, NULL);
 	if (cbuf == NULL) {
 		return 0;
 	}
@@ -55,7 +55,7 @@ JNIEXPORT jintArray JNICALL Java_orb_slam2_android_nativefunc_OrbNdkHelper_start
 	cv::Mat ima = s->TrackMonocular(myimg, curTimeStamp);
 	jintArray resultArray = env->NewIntArray(ima.rows * ima.cols);
 	jint *resultPtr;
-	resultPtr = env->GetIntArrayElements(resultArray, false);
+	resultPtr = env->GetIntArrayElements(resultArray, NULL);
 	for (int i = 0; i < ima.rows; i++)
 		for (int j = 0; j < ima.cols; j++) {
 			int R = ima.at < Vec3b > (i, j)[0];
@@ -129,7 +129,7 @@ JNIEXPORT jintArray JNICALL Java_orb_slam2_android_nativefunc_OrbNdkHelper_start
 	cv::Mat ima = s->TrackMonocular(*im, timestamp);
 	jintArray resultArray = env->NewIntArray(ima.rows * ima.cols);
 	jint *resultPtr;
-	resultPtr = env->GetIntArrayElements(resultArray, false);
+	resultPtr = env->GetIntArrayElements(resultArray, NULL);
 	for (int i = 0; i < ima.rows; i++)
 	for (int j = 0; j < ima.cols; j++) {
 		int R = ima.at < Vec3b > (i, j)[0];
