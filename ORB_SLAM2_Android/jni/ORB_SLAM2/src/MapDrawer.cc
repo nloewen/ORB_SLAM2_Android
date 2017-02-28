@@ -97,6 +97,8 @@ void MapDrawer::DrawKeyFrames(const bool bDrawKF, const bool bDrawGraph) {
 
 	const vector<KeyFrame*> vpKFs = mpMap->GetAllKeyFrames();
 
+	glEnableClientState (GL_VERTEX_ARRAY);
+
 	if (bDrawKF) {
 		for (size_t i = 0; i < vpKFs.size(); i++) {
 			KeyFrame* pKF = vpKFs[i];
@@ -170,6 +172,8 @@ void MapDrawer::DrawCurrentCamera(const cv::Mat &M) {
 	const float &w = mCameraSize;
 	const float h = w * 0.75;
 	const float z = w * 0.6;
+
+    glEnableClientState (GL_VERTEX_ARRAY);
 
 	glPushMatrix();
 	glMultMatrixf(M.ptr<GLfloat>(0));
