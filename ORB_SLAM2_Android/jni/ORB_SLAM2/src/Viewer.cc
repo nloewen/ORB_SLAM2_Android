@@ -173,7 +173,7 @@ void Viewer::Run()
 }
 
 void Viewer::drawGL(){
-	LOG("Viewer drawGL Thread has been started!");
+	//LOG("Viewer drawGL Thread has been started!");
 	mpMapDrawer->DrawKeyFrames(true,true);
 	mpMapDrawer->DrawMapPoints();
 	mpMapDrawer->DrawCurrentCamera(mpMapDrawer->GetCurrentOpenGLCameraMatrix());

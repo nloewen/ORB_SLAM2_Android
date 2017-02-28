@@ -124,7 +124,7 @@ System::System(const string &strVocFile, const string &strSettingsFile, const eS
 }
 
 void System::drawGL(){
-	LOG("drawGL Thread has been started!");
+	//LOG("drawGL Thread has been started!");
 	mpViewer->drawGL();
 }
 
