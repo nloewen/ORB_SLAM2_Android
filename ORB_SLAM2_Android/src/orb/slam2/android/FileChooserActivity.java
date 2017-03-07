@@ -8,7 +8,9 @@ import orb.slam2.android.FileChooserAdapter.FileInfo;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Debug;
 import android.os.Environment;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -95,6 +97,11 @@ public class FileChooserActivity extends Activity {
 	//获得当前路径的所有文件
 	private File[] folderScan(String path) {
 		File file = new File(path);
+		if (!file.canRead()) {
+			String warning = "Directory \"" + path + "\" can not be read.";
+			Log.w("ORB_SLAM_Android", warning);
+			toast(warning);
+		}
 		File[] files = file.listFiles();
 		return files;
 	}
