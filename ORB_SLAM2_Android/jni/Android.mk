@@ -1,6 +1,6 @@
 LOCAL_PATH:= $(call my-dir)
 
-OPENCV_MK_PATH := ${LOCAL_PATH}/../../../OpenCV-2.4.11-android-sdk/sdk/native/jni/OpenCV.mk
+OPENCV_MK_PATH := ${LOCAL_PATH}/../../../OpenCV-2.4.13.2-android-sdk/sdk/native/jni/OpenCV.mk
 
 #############DLib模块##################
 
@@ -13,7 +13,8 @@ include $(CLEAR_VARS)
 MAINDIR:= $(LOCAL_PATH)
 LOCAL_MODULE:= lapack
 LOCAL_SHORT_COMMANDS := true
-LOCAL_STATIC_LIBRARIES := tmglib clapack blas f2c
+#LOCAL_STATIC_LIBRARIES := tmglib clapack blas f2c
+LOCAL_STATIC_LIBRARIES := clapack blas f2c
 
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_C_INCLUDES)
 LOCAL_EXPORT_LDLIBS := $(LOCAL_LDLIBS)
@@ -206,7 +207,7 @@ LOCAL_CPP_EXTENSION := .cc
 LOCAL_SHARED_LIBRARIES+=DBoW2
 LOCAL_SHARED_LIBRARIES+=DLib
 LOCAL_SHARED_LIBRARIES+=g2o
-LOCAL_SHARED_LIBRARIES+=pangolin
+#LOCAL_SHARED_LIBRARIES+=pangolin
 LOCAL_LDLIBS += -llog -landroid -lEGL -lGLESv1_CM 
 LOCAL_EXPORT_C_INCLUDES+=$(LOCAL_PATH)/ORB_SLAM2/include
 LOCAL_CPPFLAGS := -std=c++11 -pthread -frtti -fexceptions -ftemplate-backtrace-limit=0
@@ -218,8 +219,8 @@ include $(BUILD_SHARED_LIBRARY)
 ##############ORB_SLAM2 執行模块###############################
 include $(CLEAR_VARS)
 MAIN_DIR:=$(LOCAL_PATH)
+OPENCV_CAMERA_MODULES:=on
 OPENCV_INSTALL_MODULES:=on
-OPENCV_LIB_TYPE:=STATIC
 ifeq ("$(wildcard $(OPENCV_MK_PATH))","")  
 #try to load OpenCV.mk from default install location  
 include E:/ORB_SLAM2/OpenCV-2.4.9-android-sdk/sdk/native/jni/OpenCV.mk
